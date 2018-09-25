@@ -1,0 +1,26 @@
+<table class="table table-striped footable" ng-show="!loading">
+	<thead>
+		<tr>
+			<th data-name="id">#ID</th>
+			<th data-name="passageiro">PASSAGEIRO</th>
+			<th data-name="origem">ORIGEM</th>
+			<th data-name="destino">DESTINO</th>
+			<th data-name="horarioProgramado">HORÁRIO PROGRAMADO</th>
+			<th data-name="situacao">SITUAÇÃO</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="row-click" ng-repeat="d in allData" >			
+			<td>{{d.id}}</td>
+			<td>{{d.passageiro}}</td>
+			<td>{{d.origem}}</td>
+			<td>{{d.destino}}</td>
+			<td>{{d.horarioProgramado|date:'dd/MM/yyyy'}} às {{d.horarioProgramado|date:'HH:mm'}}</td>			
+			<td>
+					<button ng-show="d.situacao == 'CONFIRMADO'"  class="btn btn-status"><span class="text-success">CONFIRMADO</span></button>
+					<button ng-show="d.situacao == 'CANCELADO'"  class="btn btn-status"><span class="text-danger">CANCELADO</span></button>
+					<button ng-show="d.situacao == 'PENDENTE'"  class="btn btn-status"><span class="text-warning">PENDENTE</span></button>
+			</td>
+		</tr>
+	</tbody>
+</table>
